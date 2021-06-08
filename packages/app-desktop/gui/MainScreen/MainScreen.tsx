@@ -29,6 +29,7 @@ import { themeStyle } from '@joplin/lib/theme';
 import validateLayout from '../ResizableLayout/utils/validateLayout';
 import iterateItems from '../ResizableLayout/utils/iterateItems';
 import removeItem from '../ResizableLayout/utils/removeItem';
+import 'global-agent/bootstrap';
 
 const { connect } = require('react-redux');
 const { PromptDialog } = require('../PromptDialog.min.js');
