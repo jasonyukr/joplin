@@ -546,7 +546,7 @@ const TinyMCE = (props: NoteBodyEditorProps, ref: any) => {
 
 			const toolbar = [
 				'bold', 'italic', 'joplinHighlight', 'joplinStrikethrough', 'formattingExtras', '|',
-				'link', 'joplinColorRed', 'joplinColorGreen', 'joplinColorBlue', 'joplinColorGrey', 'joplinBackgroundRed', 'joplinBackgroundGreen', 'joplinBackgroundBlue', 'joplinBackgroundGrey', 'joplinInlineCode', 'joplinCodeBlock', 'joplinAttach', '|',
+				'link', 'joplinPre', 'joplinColorRed', 'joplinColorGreen', 'joplinColorBlue', 'joplinColorGrey', 'joplinBackgroundRed', 'joplinBackgroundGreen', 'joplinBackgroundBlue', 'joplinBackgroundGrey', 'joplinInlineCode', 'joplinCodeBlock', 'joplinAttach', '|',
 				'bullist', 'numlist', 'joplinChecklist', '|',
 				'h1', 'h2', 'h3', 'hr', 'blockquote', 'table', `joplinInsertDateTime${toolbarPluginButtons}`,
 			];
@@ -572,7 +572,7 @@ const TinyMCE = (props: NoteBodyEditorProps, ref: any) => {
 				toolbar: toolbar.join(' '),
 				localization_function: _,
 				contextmenu: false,
-				browser_spellcheck: true,
+				browser_spellcheck: false,
 				formats: {
 					joplinHighlight: { inline: 'mark', remove: 'all' },
 					joplinStrikethrough: { inline: 's', remove: 'all' },
@@ -662,6 +662,14 @@ const TinyMCE = (props: NoteBodyEditorProps, ref: any) => {
 					});
 
 					setupToolbarButtons(editor);
+
+					editor.ui.registry.addButton('joplinPre', {
+						tooltip: _('pre block'),
+						text: 'pre',
+						onAction: function() {
+							editor.execCommand('mceInsertRawHTML', false, '<pre class="jop-noMdConv"><br/></pre>');
+						},
+					});
 
 					editor.ui.registry.addButton('joplinColorRed', {
 						tooltip: _('Color Red'),
