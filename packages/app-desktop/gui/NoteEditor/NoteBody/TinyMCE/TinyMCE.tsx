@@ -121,7 +121,7 @@ interface JoplinCommandToTinyMceCommands {
 }
 
 const joplinCommandToTinyMceCommands: JoplinCommandToTinyMceCommands = {
-//	'textBold': { name: 'mceToggleFormat', value: 'bold' },
+	'textBold': { name: 'mceToggleFormat', value: 'bold' },
 	'textItalic': { name: 'mceToggleFormat', value: 'italic' },
 	'textLink': { name: 'mceLink' },
 	'search': { name: 'SearchReplace' },
