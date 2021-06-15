@@ -711,15 +711,6 @@ function CodeMirror(props: NoteBodyEditorProps, ref: any) {
 			);
 			menu.append(
 				new MenuItem({
-					label: _('Color:yellow'),
-					enabled: true,
-					click: async () => {
-						wrapSelectionWithStrings('<span style="color:yellow">', '</span>', _(''));
-					},
-				})
-			);
-			menu.append(
-				new MenuItem({
 					label: _('Color:grey'),
 					enabled: true,
 					click: async () => {
@@ -727,61 +718,6 @@ function CodeMirror(props: NoteBodyEditorProps, ref: any) {
 					},
 				})
 			);
-			menu.append(
-				new MenuItem({
-					label: _('Color:cyan'),
-					enabled: true,
-					click: async () => {
-						wrapSelectionWithStrings('<span style="color:cyan">', '</span>', _(''));
-					},
-				})
-			);
-			menu.append(
-				new MenuItem({
-					label: _('Color:teal'),
-					enabled: true,
-					click: async () => {
-						wrapSelectionWithStrings('<span style="color:teal">', '</span>', _(''));
-					},
-				})
-			);
-			menu.append(
-				new MenuItem({
-					label: _('Color:orange'),
-					enabled: true,
-					click: async () => {
-						wrapSelectionWithStrings('<span style="color:orange">', '</span>', _(''));
-					},
-				})
-			);
-			menu.append(
-				new MenuItem({
-					label: _('Color:purple'),
-					enabled: true,
-					click: async () => {
-						wrapSelectionWithStrings('<span style="color:purple">', '</span>', _(''));
-					},
-				})
-			);
-			menu.append(
-				new MenuItem({
-					label: _('Color:magenta'),
-					enabled: true,
-					click: async () => {
-						wrapSelectionWithStrings('<span style="color:magenta">', '</span>', _(''));
-					},
-				})
-			);
-			menu.append(
-				new MenuItem({
-					label: _('Color:skyBlue'),
-					enabled: true,
-					click: async () => {
-						wrapSelectionWithStrings('<span style="color:skyblue">', '</span>', _(''));
-					},
-				})
-			);
-
 			menu.append(
 				new MenuItem({
 					label: _('Background:red'),
@@ -811,73 +747,10 @@ function CodeMirror(props: NoteBodyEditorProps, ref: any) {
 			);
 			menu.append(
 				new MenuItem({
-					label: _('Background:yellow'),
-					enabled: true,
-					click: async () => {
-						wrapSelectionWithStrings('<span style="color:black;background:yellow">', '</span>', _(''));
-					},
-				})
-			);
-			menu.append(
-				new MenuItem({
 					label: _('Background:grey'),
 					enabled: true,
 					click: async () => {
-						wrapSelectionWithStrings('<span style="color:black;background:grey">', '</span>', _(''));
-					},
-				})
-			);
-			menu.append(
-				new MenuItem({
-					label: _('Background:cyan'),
-					enabled: true,
-					click: async () => {
-						wrapSelectionWithStrings('<span style="color:black;background:cyan">', '</span>', _(''));
-					},
-				})
-			);
-			menu.append(
-				new MenuItem({
-					label: _('Background:teal'),
-					enabled: true,
-					click: async () => {
-						wrapSelectionWithStrings('<span style="color:white;background:teal">', '</span>', _(''));
-					},
-				})
-			);
-			menu.append(
-				new MenuItem({
-					label: _('Background:orange'),
-					enabled: true,
-					click: async () => {
-						wrapSelectionWithStrings('<span style="color:black;background:orange">', '</span>', _(''));
-					},
-				})
-			);
-			menu.append(
-				new MenuItem({
-					label: _('Background:purple'),
-					enabled: true,
-					click: async () => {
-						wrapSelectionWithStrings('<span style="color:white;background:purple">', '</span>', _(''));
-					},
-				})
-			);
-			menu.append(
-				new MenuItem({
-					label: _('Background:magenta'),
-					enabled: true,
-					click: async () => {
-						wrapSelectionWithStrings('<span style="color:white;background:magenta">', '</span>', _(''));
-					},
-				})
-			);
-			menu.append(
-				new MenuItem({
-					label: _('Background:skyBlue'),
-					enabled: true,
-					click: async () => {
-						wrapSelectionWithStrings('<span style="color:black;background:skyblue">', '</span>', _(''));
+						wrapSelectionWithStrings('<span style="color:white;background:grey">', '</span>', _(''));
 					},
 				})
 			);
