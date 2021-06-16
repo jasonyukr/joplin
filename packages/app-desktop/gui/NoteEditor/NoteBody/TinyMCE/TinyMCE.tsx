@@ -573,6 +573,9 @@ const TinyMCE = (props: NoteBodyEditorProps, ref: any) => {
 				localization_function: _,
 				contextmenu: false,
 				browser_spellcheck: false,
+				remove_trailing_brs: false,
+				extended_valid_elements: 'en-note[*]',
+				custom_elements: 'en-note',
 				formats: {
 					joplinHighlight: { inline: 'mark', remove: 'all' },
 					joplinStrikethrough: { inline: 's', remove: 'all' },
