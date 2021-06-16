@@ -562,7 +562,6 @@ const TinyMCE = (props: NoteBodyEditorProps, ref: any) => {
 				plugins: 'noneditable link joplinLists hr searchreplace codesample table',
 				noneditable_noneditable_class: 'joplin-editable', // Can be a regex too
 				valid_elements: '*[*]', // We already filter in sanitize_html
-				extended_valid_elements: 'en-note[*]',
 				menubar: false,
 				relative_urls: false,
 				branding: false,
