@@ -17,7 +17,7 @@ export default function(theme: any) {
 		/* https://necolas.github.io/normalize.css/ */
 		html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}
 		article,aside,footer,header,nav,section{display:block}h1{font-size:2em;margin:.67em 0}hr{box-sizing:content-box;height:0;overflow:visible}
-		pre{font-family:'Fira Code',monospace,monospace !important;font-size:12px !important;border:1px solid ${theme.codeBorderColor};}a{background-color:transparent;-webkit-text-decoration-skip:objects}
+		pre{font-family:'Fira Code',monospace,monospace !important;font-size:11px !important;border:1px solid ${theme.codeBorderColor};}a{background-color:transparent;-webkit-text-decoration-skip:objects}
 		b,strong{font-weight:bolder}small{font-size:80%}img{border-style:none}
 
 		body {
@@ -361,7 +361,7 @@ export default function(theme: any) {
 			background: none;
 			padding: 0;
 			color: inherit;
-			font-size:12px !important;
+			font-size:11px !important;
 			font-family:'Fira Code',monospace,monospace !important;
 		}
 
