@@ -7,7 +7,6 @@
   "scripts": {
     "dist": "npm run electronRebuild && npx electron-builder",
     "build": "gulp build",
-    "postinstall": "patch-package",
     "postinstall": "npm run build",
     "electronRebuild": "gulp electronRebuild",
     "tsc": "node node_modules/typescript/bin/tsc --project tsconfig.json",
