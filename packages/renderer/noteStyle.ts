@@ -361,7 +361,8 @@ export default function(theme: any) {
 			background: none;
 			padding: 0;
 			color: inherit;
-			font-size: inherit;
+			font-size:12px !important;
+			font-family:'Fira Code',monospace,monospace !important;
 		}
 
 		/* =============================================== */
