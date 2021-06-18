@@ -265,7 +265,8 @@ export default function(theme: any) {
 			padding-left: .2em;
 			border-radius: .25em;
 			color: ${theme.codeColor};
-			font-size: ${theme.codeFontSize};
+			font-size:11px !important;
+			font-family:'Fira Code',monospace,monospace !important;
 		}
 
 		.highlighted-keyword {
