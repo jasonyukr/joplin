@@ -24,4 +24,3 @@ index 9687839..18f66fb 100644
        if (!hasBrAfter(editor.getBody(), inline)) {
          after(SugarElement.fromDom(inline), SugarElement.fromTag('br'));
        }
-
