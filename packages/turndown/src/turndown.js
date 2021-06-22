@@ -193,7 +193,8 @@ function process (parentNode, escapeContent = 'auto') {
         replacement = node.nodeValue
 
         // Escape < and >
-        replacement = replacement.replace(/<(.+?)>/g, '&lt;$1&gt;');
+        replacement = replacement.replace(/</g, '&lt;');
+        replacement = replacement.replace(/>/g, '&gt;');
       } else {
         replacement = self.escape(node.nodeValue)
 
