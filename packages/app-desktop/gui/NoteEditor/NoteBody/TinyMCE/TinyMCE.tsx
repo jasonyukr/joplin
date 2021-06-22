@@ -697,7 +697,7 @@ const TinyMCE = (props: NoteBodyEditorProps, ref: any) => {
 						tooltip: _('pre block'),
 						text: 'pre',
 						onAction: function() {
-							editor.execCommand('mceInsertRawHTML', false, '<pre class="jop-noMdConv"><br/></pre>');
+							editor.execCommand('mceInsertRawHTML', false, '<pre class="jop-noMdConv">&nbsp;</pre>');
 						},
 					});
 
