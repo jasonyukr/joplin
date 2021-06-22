@@ -129,7 +129,11 @@ function enexXmlToHtml_(stream, resources) {
 			} else if (htmlUtils.isSelfClosingTag(tagName)) {
 				section.lines.push(`<${tagName}${attributesStr}/>`);
 			} else {
-				section.lines.push(`<${tagName}${attributesStr}>`);
+				if (tagName == 'en-note') {
+					section.lines.push(`<${tagName}${attributesStr} style="font-size:12px;font-family:'Fira Code',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif">`);
+				} else {
+					section.lines.push(`<${tagName}${attributesStr}>`);
+				}
 			}
 		});
 
