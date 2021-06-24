@@ -56,8 +56,6 @@ export default class SearchEngineUtils {
 		if (folderId) {
 			notes_ = notes.filter(note => note.parent_id === folderId);
 		}
-console.log("notesForQuery notes=");
-console.log(notes_);
 
 		// Filter completed todos
 		let filteredNotes = [...notes_];
