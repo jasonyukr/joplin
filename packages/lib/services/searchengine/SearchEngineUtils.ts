@@ -50,17 +50,17 @@ export default class SearchEngineUtils {
 			conditions: [`id IN ("${noteIds.join('","')}")`],
 		}, options);
 
-		const notes = await Note.previews(null, previewOptions);
+		const notes_ = await Note.previews(null, previewOptions);
 
-		let notes_ = [...notes];
+		let notes = [...notes_];
 		if (folderId) {
-			notes_ = notes.filter(note => note.parent_id === folderId);
+			notes = notes_.filter(note => note.parent_id === folderId);
 		}
 
 		// Filter completed todos
-		let filteredNotes = [...notes_];
+		let filteredNotes = [...notes];
 		if (applyUserSettings && !Setting.value('showCompletedTodos')) {
-			filteredNotes = notes_.filter(note => note.is_todo === 0 || (note.is_todo === 1 && note.todo_completed === 0));
+			filteredNotes = notes.filter(note => note.is_todo === 0 || (note.is_todo === 1 && note.todo_completed === 0));
 		}
 
 		// By default, the notes will be returned in reverse order
