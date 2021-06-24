@@ -3,7 +3,7 @@ import Note from '../../models/Note';
 import Setting from '../../models/Setting';
 
 export default class SearchEngineUtils {
-	static async notesForQuery(query: string, applyUserSettings: boolean, options: any = null, searchEngine: SearchEngine = null) {
+	static async notesForQuery(query: string, applyUserSettings: boolean, folderId: string = null, options: any = null, searchEngine: SearchEngine = null) {
 		if (!options) options = {};
 
 		if (!searchEngine) {
@@ -52,10 +52,15 @@ export default class SearchEngineUtils {
 
 		const notes = await Note.previews(null, previewOptions);
 
+		let notes_ = [...notes];
+		if (folderId) {
+			notes_ = notes.filter(note => note.parent_id === folderId);
+		}
+
 		// Filter completed todos
-		let filteredNotes = [...notes];
+		let filteredNotes = [...notes_];
 		if (applyUserSettings && !Setting.value('showCompletedTodos')) {
-			filteredNotes = notes.filter(note => note.is_todo === 0 || (note.is_todo === 1 && note.todo_completed === 0));
+			filteredNotes = notes_.filter(note => note.is_todo === 0 || (note.is_todo === 1 && note.todo_completed === 0));
 		}
 
 		// By default, the notes will be returned in reverse order
