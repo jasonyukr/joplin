@@ -35,6 +35,7 @@ function SearchBar(props: Props) {
 			if (allNotesSelected) {
 				folderId = null;
 			}
+console.log("SearchBar.search() query=" + query + ", folderId=" + folderId);
 			dispatch({
 				type: 'SEARCH_UPDATE',
 				search: {
@@ -67,6 +68,7 @@ function SearchBar(props: Props) {
 			const note = props.selectedNoteId ? await Note.load(props.selectedNoteId) : null;
 
 			if (note) {
+console.log("SearchBar.onExitSearch() FOLDER_AND_NOTE_SELECT folderId=" + note.parent_id + ", noteId=" + note.id);
 				props.dispatch({
 					type: 'FOLDER_AND_NOTE_SELECT',
 					folderId: note.parent_id,
@@ -74,6 +76,7 @@ function SearchBar(props: Props) {
 				});
 			} else {
 				const folderId = Setting.value('activeFolderId');
+console.log("SearchBar.onExitSearch() FOLDER_SELECT folderId=" + folderId);
 				if (folderId) {
 					props.dispatch({
 						type: 'FOLDER_SELECT',
