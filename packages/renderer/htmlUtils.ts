@@ -163,6 +163,14 @@ class HtmlUtils {
 		const parser = new htmlparser2.Parser({
 
 			onopentag: (name: string, attrs: any) => {
+				if (name.toLowerCase() === 'br') {
+					let classAttr = attrs['class'] || '';
+					if (classAttr.includes('br_in_pre')) {
+						output.push('\n');
+						return;
+					}
+				}
+
 				tagStack.push(name.toLowerCase());
 
 				if (disallowedTags.includes(currentTag())) return;
