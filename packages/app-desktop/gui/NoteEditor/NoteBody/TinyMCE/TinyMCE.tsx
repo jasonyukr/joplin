@@ -1229,7 +1229,7 @@ const TinyMCE = (props: NoteBodyEditorProps, ref: any) => {
 			// it here and we don't need to do anything special in onPaste
 			if (!shim.isWindows()) {
 				if ((event.metaKey || event.ctrlKey) && event.shiftKey && event.code === 'KeyV') {
-					pasteAsPlainText();
+//					pasteAsPlainText();
 				}
 			}
 		}
