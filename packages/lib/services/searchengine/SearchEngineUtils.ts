@@ -3,7 +3,7 @@ import Note from '../../models/Note';
 import Setting from '../../models/Setting';
 
 export default class SearchEngineUtils {
-	static async notesForQuery(query: string, applyUserSettings: boolean, options: any = null, searchEngine: SearchEngine = null) {
+	static async notesForQuery(query: string, applyUserSettings: boolean, folderId: string = null, options: any = null, searchEngine: SearchEngine = null) {
 		if (!options) options = {};
 
 		if (!searchEngine) {
@@ -50,7 +50,12 @@ export default class SearchEngineUtils {
 			conditions: [`id IN ("${noteIds.join('","')}")`],
 		}, options);
 
-		const notes = await Note.previews(null, previewOptions);
+		const notes_ = await Note.previews(null, previewOptions);
+
+		let notes = [...notes_];
+		if (folderId) {
+			notes = notes_.filter(note => note.parent_id === folderId);
+		}
 
 		// Filter completed todos
 		let filteredNotes = [...notes];

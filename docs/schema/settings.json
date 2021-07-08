@@ -241,6 +241,11 @@
 			"default": "",
 			"$comment": "private"
 		},
+		"allNotesSelected": {
+			"type": "boolean",
+			"default": "false",
+			"$comment": "private"
+		},
 		"richTextBannerDismissed": {
 			"type": "boolean",
 			"default": false,
