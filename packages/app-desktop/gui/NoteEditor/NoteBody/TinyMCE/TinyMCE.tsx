@@ -642,7 +642,7 @@ const TinyMCE = (props: NoteBodyEditorProps, ref: any) => {
 							},
 							onSubmit: async (dialogApi: any) => {
 								const newSource = newBlockSource(dialogApi.getData().languageInput, dialogApi.getData().codeTextArea);
-								const md = `${newSource.openCharacters}${newSource.content.trim()}${newSource.closeCharacters}`;
+								const md = `${newSource.openCharacters}${newSource.content.trim()}${newSource.closeCharacters}` + `<br/>`;
 								const result = await markupToHtml.current(MarkupToHtml.MARKUP_LANGUAGE_MARKDOWN, md, { bodyOnly: true });
 
 								// markupToHtml will return the complete editable HTML, but we only
