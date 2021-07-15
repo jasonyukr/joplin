@@ -1227,7 +1227,7 @@ const TinyMCE = (props: NoteBodyEditorProps, ref: any) => {
 			// Handle "paste as text". Note that when pressing CtrlOrCmd+Shift+V it's going
 			// to trigger the "keydown" event but not the "paste" event, so it's ok to process
 			// it here and we don't need to do anything special in onPaste
-			if (!shim.isWindows()) {
+			if (!shim.isWindows() && !shim.isLinux()) {
 				if ((event.metaKey || event.ctrlKey) && event.shiftKey && event.code === 'KeyV') {
 					pasteAsPlainText();
 				}
