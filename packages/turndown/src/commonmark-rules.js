@@ -33,9 +33,6 @@ rules.lineBreak = {
   filter: 'br',
 
   replacement: function (content, node, options) {
-    if (node.parentNode && node.parentNode.isPre) {
-      return '<br class="br_in_pre"/>'
-    }
     return options.br + '\n'
   }
 }
