@@ -583,7 +583,8 @@ const TinyMCE = (props: NoteBodyEditorProps, ref: any) => {
 
 			const toolbar = [
 				'bold', 'italic', 'joplinHighlight', 'joplinStrikethrough', 'formattingExtras', '|',
-				'link', 'joplinPre', 'joplinColorRed', 'joplinColorGreen', 'joplinColorBlue', 'joplinColorGrey', 'joplinBackgroundRed', 'joplinBackgroundGreen', 'joplinBackgroundBlue', 'joplinBackgroundGrey', 'joplinInlineCode', 'joplinCodeBlock', 'joplinAttach', '|',
+				'link', 'joplinInlineCode', 'joplinCodeBlock', 'joplinAttach', '|',
+				'joplinPre', 'joplinColorRed', 'joplinColorGreen', 'joplinColorBlue', 'joplinColorGrey', 'joplinBackgroundRed', 'joplinBackgroundGreen', 'joplinBackgroundBlue', 'joplinBackgroundGrey', '|',
 				'bullist', 'numlist', 'joplinChecklist', '|',
 				'h1', 'h2', 'h3', 'hr', 'blockquote', 'table', `joplinInsertDateTime${toolbarPluginButtons}`,
 			];
@@ -642,7 +643,7 @@ const TinyMCE = (props: NoteBodyEditorProps, ref: any) => {
 							},
 							onSubmit: async (dialogApi: any) => {
 								const newSource = newBlockSource(dialogApi.getData().languageInput, dialogApi.getData().codeTextArea);
-								const md = `${newSource.openCharacters}${newSource.content.trim()}${newSource.closeCharacters}` + `<br/>`;
+								const md = `${newSource.openCharacters}${newSource.content.trim()}${newSource.closeCharacters}` + `<br/>.`;
 								const result = await markupToHtml.current(MarkupToHtml.MARKUP_LANGUAGE_MARKDOWN, md, { bodyOnly: true });
 
 								// markupToHtml will return the complete editable HTML, but we only
@@ -707,7 +708,7 @@ const TinyMCE = (props: NoteBodyEditorProps, ref: any) => {
 						tooltip: _('pre block'),
 						text: 'pre',
 						onAction: function() {
-							editor.execCommand('mceInsertRawHTML', false, '<pre class="jop-noMdConv">&nbsp;</pre>');
+							editor.execCommand('mceInsertRawHTML', false, '<pre class="jop-noMdConv">..</pre>' + '<br/>.');
 						},
 					});
 
