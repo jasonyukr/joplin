@@ -381,7 +381,7 @@ export function themeStyle(themeId: number) {
 		toolbarIconSize: 18,
 	};
 
-	fontSizes.noteViewerFontSize = Math.round(fontSizes.fontSize * 1.25);
+	fontSizes.noteViewerFontSize = Math.round(fontSizes.fontSize * 1.00);
 
 	let output: any = {};
 	output.zoomRatio = zoomRatio;

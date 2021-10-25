@@ -1,4 +1,5 @@
 import * as React from 'react';
+import 'global-agent/bootstrap';
 import ResizableLayout from '../ResizableLayout/ResizableLayout';
 import findItemByKey from '../ResizableLayout/utils/findItemByKey';
 import { MoveButtonClickEvent } from '../ResizableLayout/MoveButtons';
