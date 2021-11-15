@@ -163,6 +163,7 @@ class HtmlUtils {
 		const parser = new htmlparser2.Parser({
 
 			onopentag: (name: string, attrs: any) => {
+
 				tagStack.push(name.toLowerCase());
 
 				if (disallowedTags.includes(currentTag())) return;

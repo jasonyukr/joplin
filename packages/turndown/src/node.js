@@ -3,6 +3,7 @@ import { isBlock, isVoid, hasVoid, isCodeBlock } from './utilities'
 export default function Node (node) {
   node.isBlock = isBlock(node)
   node.isCode = node.nodeName.toLowerCase() === 'code' || node.parentNode.isCode || isCodeBlock(node);
+  node.isPre = node.nodeName.toLowerCase() === 'pre' || node.parentNode.isPre;
   node.isBlank = isBlank(node)
   node.flankingWhitespace = flankingWhitespace(node)
   return node
