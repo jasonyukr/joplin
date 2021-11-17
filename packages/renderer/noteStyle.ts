@@ -23,13 +23,11 @@ export default function(theme: any, options: Options = null) {
 	const fontFamily = '\'Avenir\', \'Arial\', sans-serif';
 
 	const maxWidthTarget = options.contentMaxWidthTarget ? options.contentMaxWidthTarget : '#rendered-md';
-	const maxWidthCss = options.contentMaxWidth ? `
+	const maxWidthCss = `
 		${maxWidthTarget} {
-			max-width: ${options.contentMaxWidth}px;
-			margin-left: auto;
-			margin-right: auto;
+			max-width: 100%;
 		}
-	` : '';
+	`;
 
 	const css =
 		`
