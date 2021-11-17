@@ -698,6 +698,10 @@ const TinyMCE = (props: NoteBodyEditorProps, ref: any) => {
 					editor.addShortcut('Meta+Shift+8', '', () => editor.execCommand('InsertUnorderedList'));
 					editor.addShortcut('Meta+Shift+9', '', () => editor.execCommand('InsertJoplinChecklist'));
 
+					editor.addShortcut('Meta+Shift+0', '', () => editor.execCommand('InsertHorizontalRule')); // Meta+Shift+- doesn't work
+					editor.addShortcut('Meta+Shift+d', '', () => CommandService.instance().execute('insertDateTime'));
+					editor.addShortcut('Meta+Shift+b', '', () => openEditDialog(editor, markupToHtml, dispatchDidUpdate, null));
+
 					// TODO: remove event on unmount?
 					editor.on('DblClick', (event: any) => {
 						const editable = findEditableContainer(event.target);
