@@ -397,23 +397,6 @@ const TinyMCE = (props: NoteBodyEditorProps, ref: any) => {
 				background-color: ${theme.backgroundColor} !important;
 				opacity:0.7
 			}
-
-			.tox .tox-dialog__body-content {
-			  box-sizing: border-box;
-			  display: flex;
-			  flex: 1;
-			  flex-direction: column;
-			  -ms-flex-preferred-size: auto;
-			  max-height: 100%; /* 650px; */
-			  overflow: auto;
-			  -webkit-overflow-scrolling: touch;
-			  padding: 16px 16px;
-			}
-
-			.tox .tox-dialog--width-lg {
-			  height: 95%;    /* 650px; */
-			  max-width: 95%; /* 1200px; */
-			}
 			
 			.tox .tox-editor-header {
 				border: none;
