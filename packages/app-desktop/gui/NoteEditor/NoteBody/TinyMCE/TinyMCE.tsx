@@ -377,10 +377,12 @@ const TinyMCE = (props: NoteBodyEditorProps, ref: any) => {
 			.tox .tox-statusbar,
 			.tox .tox-dialog__header,
 			.tox .tox-dialog,
-			.tox textarea,
 			.tox input,
 			.tox .tox-dialog__footer {
 				background-color: ${theme.backgroundColor} !important;
+			}
+			.tox textarea {
+				background-color: ${theme.backgroundColor};
 			}
 
 			/*
@@ -407,12 +409,15 @@ const TinyMCE = (props: NoteBodyEditorProps, ref: any) => {
 			.tox .tox-dialog__header,
 			.tox .tox-button--icon .tox-icon svg,
 			.tox .tox-button.tox-button--icon .tox-icon svg,
-			.tox textarea,
 			.tox input,
 			.tox .tox-label,
 			.tox .tox-toolbar-label {
 				color: ${theme.color3} !important;
 				fill: ${theme.color3} !important;
+			}
+			.tox textarea {
+				color: ${theme.color3};
+				fill: ${theme.color3};
 			}
 
 			.tox .tox-statusbar a,
