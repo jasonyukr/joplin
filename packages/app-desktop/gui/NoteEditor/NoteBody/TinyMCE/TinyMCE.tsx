@@ -376,10 +376,12 @@ const TinyMCE = (props: NoteBodyEditorProps, ref: any) => {
 			.tox .tox-statusbar,
 			.tox .tox-dialog__header,
 			.tox .tox-dialog,
-			.tox textarea,
 			.tox input,
 			.tox .tox-dialog__footer {
 				background-color: ${theme.backgroundColor} !important;
+			}
+			.tox textarea {
+				background-color: ${theme.backgroundColor};
 			}
 
 			.tox .tox-dialog__body-content {
@@ -410,12 +412,15 @@ const TinyMCE = (props: NoteBodyEditorProps, ref: any) => {
 			.tox .tox-dialog__header,
 			.tox .tox-button--icon .tox-icon svg,
 			.tox .tox-button.tox-button--icon .tox-icon svg,
-			.tox textarea,
 			.tox input,
 			.tox .tox-label,
 			.tox .tox-toolbar-label {
 				color: ${theme.color3} !important;
 				fill: ${theme.color3} !important;
+			}
+			.tox textarea {
+				color: ${theme.color3};
+				fill: ${theme.color3};
 			}
 
 			.tox .tox-statusbar a,
@@ -550,6 +555,7 @@ const TinyMCE = (props: NoteBodyEditorProps, ref: any) => {
 			const toolbar = [
 				'bold', 'italic', 'joplinHighlight', 'joplinStrikethrough', 'formattingExtras', '|',
 				'link', 'joplinInlineCode', 'joplinCodeBlock', 'joplinAttach', '|',
+				'joplinPre', 'joplinColorRed', 'joplinColorGreen', 'joplinColorBlue', 'joplinColorGrey', 'joplinBackgroundRed', 'joplinBackgroundGreen', 'joplinBackgroundBlue', 'joplinBackgroundGrey', '|',
 				'bullist', 'numlist', 'joplinChecklist', '|',
 				'h1', 'h2', 'h3', 'hr', 'blockquote', 'table', `joplinInsertDateTime${toolbarPluginButtons}`,
 			];
@@ -575,13 +581,24 @@ const TinyMCE = (props: NoteBodyEditorProps, ref: any) => {
 				toolbar: toolbar.join(' '),
 				localization_function: _,
 				contextmenu: false,
-				browser_spellcheck: true,
+				browser_spellcheck: false,
+				remove_trailing_brs: false,
+				extended_valid_elements: 'en-note[*]',
+				custom_elements: 'en-note',
 				formats: {
 					joplinHighlight: { inline: 'mark', remove: 'all' },
 					joplinStrikethrough: { inline: 's', remove: 'all' },
 					joplinInsert: { inline: 'ins', remove: 'all' },
 					joplinSub: { inline: 'sub', remove: 'all' },
 					joplinSup: { inline: 'sup', remove: 'all' },
+					joplinColorRed: { inline: 'span', classes: 'jop-noMdConv', styles: { color: 'red' } },
+					joplinColorBlue: { inline: 'span', classes: 'jop-noMdConv', styles: { color: 'blue' } },
+					joplinColorGreen: { inline: 'span', classes: 'jop-noMdConv', styles: { color: 'green' } },
+					joplinColorGrey: { inline: 'span', classes: 'jop-noMdConv', styles: { color: 'grey' } },
+					joplinBackgroundRed: { inline: 'span', classes: 'jop-noMdConv', styles: { color: 'white', background: 'red' } },
+					joplinBackgroundBlue: { inline: 'span', classes: 'jop-noMdConv', styles: { color: 'white', background: 'blue' } },
+					joplinBackgroundGreen: { inline: 'span', classes: 'jop-noMdConv', styles: { color: 'white', background: 'green' } },
+					joplinBackgroundGrey: { inline: 'span', classes: 'jop-noMdConv', styles: { color: 'white', background: 'grey' } },
 				},
 				setup: (editor: any) => {
 					editor.ui.registry.addButton('joplinAttach', {
@@ -593,6 +610,72 @@ const TinyMCE = (props: NoteBodyEditorProps, ref: any) => {
 					});
 
 					setupToolbarButtons(editor);
+
+					editor.ui.registry.addButton('joplinPre', {
+						tooltip: _('pre block'),
+						text: 'pre',
+						onAction: function() {
+							editor.execCommand('mceInsertRawHTML', false, '<pre class="jop-noMdConv">..</pre>' + '<br/>.');
+						},
+					});
+
+					editor.ui.registry.addButton('joplinColorRed', {
+						tooltip: _('Color Red'),
+						text: '[r]',
+						onAction: function() {
+							editor.execCommand('FormatBlock', false, 'joplinColorRed');
+						},
+					});
+					editor.ui.registry.addButton('joplinColorGreen', {
+						tooltip: _('Color Green'),
+						text: '[g]',
+						onAction: function() {
+							editor.execCommand('FormatBlock', false, 'joplinColorGreen');
+						},
+					});
+					editor.ui.registry.addButton('joplinColorBlue', {
+						tooltip: _('Color Blue'),
+						text: '[b]',
+						onAction: function() {
+							editor.execCommand('FormatBlock', false, 'joplinColorBlue');
+						},
+					});
+					editor.ui.registry.addButton('joplinColorGrey', {
+						tooltip: _('Color Grey'),
+						text: '[y]',
+						onAction: function() {
+							editor.execCommand('FormatBlock', false, 'joplinColorGrey');
+						},
+					});
+
+					editor.ui.registry.addButton('joplinBackgroundRed', {
+						tooltip: _('Background Red'),
+						text: '[R]',
+						onAction: function() {
+							editor.execCommand('FormatBlock', false, 'joplinBackgroundRed');
+						},
+					});
+					editor.ui.registry.addButton('joplinBackgroundGreen', {
+						tooltip: _('Background Green'),
+						text: '[G]',
+						onAction: function() {
+							editor.execCommand('FormatBlock', false, 'joplinBackgroundGreen');
+						},
+					});
+					editor.ui.registry.addButton('joplinBackgroundBlue', {
+						tooltip: _('Background Blue'),
+						text: '[B]',
+						onAction: function() {
+							editor.execCommand('FormatBlock', false, 'joplinBackgroundBlue');
+						},
+					});
+					editor.ui.registry.addButton('joplinBackgroundGrey', {
+						tooltip: _('Background Grey'),
+						text: '[Y]',
+						onAction: function() {
+							editor.execCommand('FormatBlock', false, 'joplinBackgroundGrey');
+						},
+					});
 
 					editor.ui.registry.addButton('joplinCodeBlock', {
 						tooltip: _('Code Block'),
@@ -639,6 +722,10 @@ const TinyMCE = (props: NoteBodyEditorProps, ref: any) => {
 					editor.addShortcut('Meta+Shift+7', '', () => editor.execCommand('InsertOrderedList'));
 					editor.addShortcut('Meta+Shift+8', '', () => editor.execCommand('InsertUnorderedList'));
 					editor.addShortcut('Meta+Shift+9', '', () => editor.execCommand('InsertJoplinChecklist'));
+
+					editor.addShortcut('Meta+Shift+0', '', () => editor.execCommand('InsertHorizontalRule')); // Meta+Shift+- doesn't work
+					editor.addShortcut('Meta+Shift+d', '', () => CommandService.instance().execute('insertDateTime'));
+					editor.addShortcut('Meta+Shift+b', '', () => openEditDialog(editor, markupToHtml, dispatchDidUpdate, null));
 
 					// TODO: remove event on unmount?
 					editor.on('DblClick', (event: any) => {
@@ -952,7 +1039,7 @@ const TinyMCE = (props: NoteBodyEditorProps, ref: any) => {
 			//
 			// Any maybe others, so to catch them all we only check the prefix
 
-			const changeCommands = ['mceBlockQuote', 'ToggleJoplinChecklistItem', 'Bold', 'Italic', 'Underline', 'Paragraph'];
+			const changeCommands = ['mceBlockQuote', 'ToggleJoplinChecklistItem', 'Bold', 'Italic', 'Underline', 'Paragraph', 'FormatBlock'];
 
 			if (
 				changeCommands.includes(c) ||
@@ -1007,6 +1094,14 @@ const TinyMCE = (props: NoteBodyEditorProps, ref: any) => {
 						const modifiedHtml = await processPastedHtml(pastedHtml);
 						editor.insertContent(modifiedHtml);
 					} else { // Handles plain text
+						if (event.target && event.target.nodeName === 'PRE') {
+							// Escape < and >
+							var replacement = pastedText;
+							replacement = replacement.replace(/</g, '&lt;');
+							replacement = replacement.replace(/>/g, '&gt;');
+							editor.insertContent(replacement);
+							return;
+						}
 						pasteAsPlainText(pastedText);
 					}
 

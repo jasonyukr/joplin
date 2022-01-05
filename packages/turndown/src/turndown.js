@@ -192,6 +192,12 @@ function process (parentNode, escapeContent = 'auto') {
     if (node.nodeType === 3) {
       if (node.isCode || escapeContent === false) {
         replacement = node.nodeValue
+      } else if (node.isPre) {
+        replacement = node.nodeValue
+
+        // Escape < and >
+        replacement = replacement.replace(/</g, '&lt;');
+        replacement = replacement.replace(/>/g, '&gt;');
       } else {
         replacement = self.escape(node.nodeValue)
 
