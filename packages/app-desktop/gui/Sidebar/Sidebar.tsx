@@ -705,8 +705,11 @@ class SidebarComponent extends React.Component<Props, State> {
 			})
 		);
 
+		Setting.setValue('allNotesSelected', false);
+
 		if (this.props.folders.length) {
 			const allNotesSelected = this.props.notesParentType === 'SmartFilter' && this.props.selectedSmartFilterId === ALL_NOTES_FILTER_ID;
+			Setting.setValue('allNotesSelected', allNotesSelected);
 			const result = shared.renderFolders(this.props, this.renderFolderItem.bind(this));
 			const folderItems = [this.renderAllNotesItem(allNotesSelected)].concat(result.items);
 			this.folderItemsOrder_ = result.order;
