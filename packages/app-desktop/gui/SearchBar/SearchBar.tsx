@@ -33,13 +33,18 @@ function SearchBar(props: Props) {
 
 	useEffect(() => {
 		function search(searchId: string, query: string, dispatch: Function) {
+			var folderId = Setting.value('activeFolderId');
+			const allNotesSelected = Setting.value('allNotesSelected');
+			if (allNotesSelected) {
+				folderId = null;
+			}
 			dispatch({
 				type: 'SEARCH_UPDATE',
 				search: {
 					id: searchId,
 					title: query,
 					query_pattern: query,
-					query_folder_id: null,
+					query_folder_id: folderId,
 					type_: BaseModel.TYPE_SEARCH,
 				},
 			});

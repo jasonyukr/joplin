@@ -694,6 +694,7 @@ class Setting extends BaseModel {
 			// selected folder. It corresponds in general to the currently selected folder or
 			// to the last folder that was selected.
 			activeFolderId: { value: '', type: SettingItemType.String, public: false },
+			allNotesSelected: { value: 'false', type: SettingItemType.Bool, public: false },
 
 			richTextBannerDismissed: { value: false, type: SettingItemType.Bool, public: false },
 
