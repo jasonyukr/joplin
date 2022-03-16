@@ -405,7 +405,7 @@ const TinyMCE = (props: NoteBodyEditorProps, ref: any) => {
 			}
 			
 			.tox .tox-editor-header {
-				border: none;
+				border-bottom: 1px solid ${theme.backgroundColor} !important;
 			}
 
 			.tox .tox-tbtn,
