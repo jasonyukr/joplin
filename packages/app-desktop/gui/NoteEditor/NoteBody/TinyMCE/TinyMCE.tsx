@@ -1097,7 +1097,7 @@ const TinyMCE = (props: NoteBodyEditorProps, ref: any) => {
 					} else { // Handles plain text
 						if (event.target && event.target.nodeName === 'PRE') {
 							// Escape < and >
-							let replacement = pastedText;
+							var replacement = pastedText;
 							replacement = replacement.replace(/</g, '&lt;');
 							replacement = replacement.replace(/>/g, '&gt;');
 							editor.insertContent(replacement);
