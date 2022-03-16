@@ -18,9 +18,14 @@ hue-6-2: #c18401
 
 */
 
+/*
+ copied from
+  --joplin-code-background-color: rgb(243, 243, 243);
+  --joplin-code-color: rgb(0,0,0);
+*/
 .hljs {
-  color: #383a42;
-  background: #fafafa;
+  color: #000000;
+  background: #f3f3f3;
 }
 
 .hljs-comment,

@@ -382,7 +382,7 @@ const TinyMCE = (props: NoteBodyEditorProps, ref: any) => {
 				background-color: ${theme.backgroundColor} !important;
 			}
 			.tox textarea {
-				background-color: ${theme.backgroundColor};
+				background-color: ${theme.codeBackgroundColor} !important;
 			}
 
 			.tox .tox-dialog__body-content {
@@ -420,8 +420,8 @@ const TinyMCE = (props: NoteBodyEditorProps, ref: any) => {
 				fill: ${theme.color3} !important;
 			}
 			.tox textarea {
-				color: ${theme.color3};
-				fill: ${theme.color3};
+				color: ${theme.codeColor} !important;
+				fill: ${theme.codeColor} !important;
 			}
 
 			.tox .tox-statusbar a,
@@ -1097,7 +1097,7 @@ const TinyMCE = (props: NoteBodyEditorProps, ref: any) => {
 					} else { // Handles plain text
 						if (event.target && event.target.nodeName === 'PRE') {
 							// Escape < and >
-							var replacement = pastedText;
+							let replacement = pastedText;
 							replacement = replacement.replace(/</g, '&lt;');
 							replacement = replacement.replace(/>/g, '&gt;');
 							editor.insertContent(replacement);
