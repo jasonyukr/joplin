@@ -49,9 +49,9 @@ const theme: Theme = {
 	warningBackgroundColor: '#013F74',
 
 	tableBackgroundColor: 'rgb(40, 41, 42)',
-	codeBackgroundColor: 'rgb(47, 48, 49)',
+	codeBackgroundColor: '#1d1f21', // from github atom-dark-syntax/syntax-variables.less
 	codeBorderColor: 'rgb(70, 70, 70)',
-	codeColor: '#ffffff',
+	codeColor: '#c5c8c6',           // from github atom-dark-syntax/syntax-variables.less
 
 	codeMirrorTheme: 'material-darker',
 	codeThemeCss: 'atom-one-dark-reasonable.css',

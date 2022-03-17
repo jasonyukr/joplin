@@ -46,9 +46,9 @@ const theme: Theme = {
 	warningBackgroundColor: '#FFD08D',
 
 	tableBackgroundColor: 'rgb(247, 247, 247)',
-	codeBackgroundColor: 'rgb(243, 243, 243)',
+	codeBackgroundColor: '#fafafa',   // from atom-one-light.css
 	codeBorderColor: 'rgb(220, 220, 220)',
-	codeColor: 'rgb(0,0,0)',
+	codeColor: '#383a42',             // from atom-one-light.css
 
 	blockQuoteOpacity: 0.7,
 
