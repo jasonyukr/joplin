@@ -9,10 +9,10 @@ const theme: Theme = {
 
 	// Color scheme "1" is the basic one, like used to display the note
 	// content. It's basically dark gray text on white background
-	backgroundColor: '#1D2024',
+	backgroundColor: '#161719',    // from Atom editor (One Dark UI Theme) inactive tab color
 	backgroundColorTransparent: 'rgba(255,255,255,0.9)',
 	oddBackgroundColor: '#141517',
-	color: '#dddddd',
+	color: '#c5c8c6',              // from github atom-dark-syntax/syntax-variables.less
 	colorError: 'red',
 	colorCorrect: '#72b972',
 	colorWarn: '#9A5B00',
